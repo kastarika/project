@@ -13,16 +13,18 @@ max_len = [0] * 6
 line_cnt = len(file_contents)
 
 for line in file_contents:
+	line = line.replace('\n', '')
 	seperated_values = line.split(',')
-	for i in range(len(seperated_values)):
+	for i in range(6):
 		max_len[i] = max(max_len[i], len(seperated_values[i]))
 
-full_len = 0
+full_len = 5
 
 for i in range(6):
 	full_len += max_len[i]
 
 for line in file_contents:
+	line = line.replace('\n', '')
 	print('+', end = '')
 	for j in range(full_len):
 		print('-', end = '')
@@ -38,5 +40,5 @@ for line in file_contents:
 print('+', end = '')
 for i in range(full_len):
 	print('-', end = '')
-print('+', end = '')
+print('+')
 
